@@ -1,36 +1,23 @@
 ## THIS IS CODE TO 1)RUN BUNNEFELD MODELS
-## K PROFFIT Sept2015
-
-
-#KELLY's FILE PATHS
-#inputpath="C:\\Users\\CF2752\\Documents\\Sapphire Elk\\Kristin\\migration\\Bunnefeld\\"
-#outputpath="C:\\Users\\CF2752\\Documents\\Sapphire Elk\\Kristin\\migration\\Bunnefeld\\BunnefeldOutput\\"
-#KRISTIN's FILE PATHS 
-inputpath="C:\\Users\\kjbark3r\\Documents\\NSERP\\ResidentMigrant\\migration\\Bunnefeld\\"
-outputpath="C:\\Users\\kjbark3r\\Documents\\NSERP\\ResidentMigrant\\migration\\Bunnefeld\\BunnefeldOutput\\"
+## K PROFFIT Sept2015 + K BARKER Oct2015
 
 #setting input and output paths to either work computer or personal laptop
 
 wd_workcomp <- "C:\\Users\\kristin.barker\\Documents\\GitHub\\NSD_Test\\"
 wd_laptop <- "C:\\Users\\kjbark3r\\Documents\\GitHub\\NSD_Test\\"
 
-inputpath <- if (file.exists(wd_workcomp)){
-  setwd(file.path(wd_workcomp))
+if (file.exists(wd_workcomp)){
+  inputpath="C:\\Users\\kristin.barker\\Documents\\GitHub\\NSD_Test\\"
 } else {
-  if (file.exists(wd_laptop)){
-    setwd(file.path(wd_laptop))
-  }
+  inputpath="C:\\Users\\kjbark3r\\Documents\\GitHub\\NSD_Test\\"
 }
-getwd()
+
 
 if (file.exists(wd_workcomp)){
   outputpath="C:\\Users\\kristin.barker\\Documents\\GitHub\\NSD_Test\\Output\\"
 } else {
     outputpath="C:\\Users\\kjbark3r\\Documents\\GitHub\\NSD_Test\\Output\\"
   }
-
-
-
 
 #########################################################################
 #######Part 1 - Bunnefeld Migratation Status Analysis
@@ -61,7 +48,7 @@ write.table(COEFcsv, append=FALSE,
 
 
 ####### PARAMETER CONSTRAINTS ########
-#ASYMPTOTES  - the square of the migration distance from the starting point (Feb 15) in km. 
+#ASYMPTOTES  - the square of the migration distance from the starting point (Feb 26) in km. 
 #Asymptote constraints are basically setting a minimum y-axis value of that fitted peak or plateau, in squared km
 #Elk must migrate a minimum 1 miles from the Feb 15th location (2.2 km to be considered a migrant)
 L_a1=4.84
@@ -76,9 +63,9 @@ L_a2=0
 #Elk must be at midpoint of spring migrate between April 1 and middle of July
 #Elk must be at midpoint of fall migration between August 15 and Dec 15 (154 days post Feb 26 [starting date]
 L_t1=35  #(35 days past Feb 26th start date is April 1)
-U_t1=141
-L_t2=171
-U_t2=293
+U_t1=140 #July 15
+L_t2=171 #August 15
+U_t2=293 #December 15
 
 #DURATION OF 1/4 of TRIP  - the coefficient dur is essentially 1/4 duration of migration
 #Elk migration must be > 30 days in length, so set dur1 = 0- 8 and dur2 = 0-8
