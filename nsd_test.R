@@ -2,16 +2,14 @@
 ## K PROFFIT Sept2015 + K BARKER Oct2015
 
 #setting input and output paths to either work computer or personal laptop
-
-wd_workcomp <- "C:\\Users\\kristin.barker\\Documents\\GitHub\\NSD_Test\\"
-wd_laptop <- "C:\\Users\\kjbark3r\\Documents\\GitHub\\NSD_Test\\"
+wd_workcomp <- "C:\\Users\\kristin.barker\\Documents\\GitHub\\NSD_Test"
+wd_laptop <- "C:\\Users\\kjbark3r\\Documents\\GitHub\\NSD_Test"
 
 if (file.exists(wd_workcomp)){
   inputpath="C:\\Users\\kristin.barker\\Documents\\GitHub\\NSD_Test\\"
 } else {
   inputpath="C:\\Users\\kjbark3r\\Documents\\GitHub\\NSD_Test\\"
 }
-
 
 if (file.exists(wd_workcomp)){
   outputpath="C:\\Users\\kristin.barker\\Documents\\GitHub\\NSD_Test\\Output\\"
@@ -80,7 +78,7 @@ U_dur2=8
 #IMPORT LIST OF ANIMALS TO RUN
 elklist = read.csv(paste0(inputpath,"elklist.csv"), head=TRUE)
 #IMPORT TABLE WITH ALL ANIMALS' DATA
-dataall = read.csv(paste0(inputpath,"temp_data.csv"), head=TRUE)
+dataall = read.csv(paste0(inputpath,"dailylocs.csv"), head=TRUE)
 attach(dataall)
 head(dataall)
 
@@ -103,7 +101,8 @@ for(i in 1:numelk) {
   AICtable[1,1] = elk
   coefs=array(NA,c(1,15))
   coefs[1,1]=elk
-  
+
+#KRISTIN THE BELOW LINE IS WHERE YOU FAIL    
   png(filename=paste0(outputpath,elk,".png"),height=800,width=900,pointsize=16,bg="white")
   par(mfrow=c(2,3))
   
