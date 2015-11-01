@@ -102,7 +102,6 @@ for(i in 1:numelk) {
   coefs=array(NA,c(1,15))
   coefs[1,1]=elk
 
-#KRISTIN THE BELOW LINE IS WHERE YOU FAIL    
   png(filename=paste0(outputpath,elk,".png"),height=800,width=900,pointsize=16,bg="white")
   par(mfrow=c(2,3))
   
